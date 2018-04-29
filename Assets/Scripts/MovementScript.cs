@@ -56,49 +56,87 @@ public class MovementScript : MonoBehaviour {
 	private void move() {
 		if (buttonCooldown <= 0) {
 
-			if (Input.GetAxis ("Vertical") > 0) { //forward
-				if(dir != Direction.UP) {
-					buttonCooldown = 5;
-					dir = Direction.UP;
-				} else {
-					canMove = false;
-					moving = true;
-					pos += Vector3.forward;
-				}			
+			if (Input.GetAxis ("Vertical") > 0)
+            { //forward
+                moveForward();
 
-			} else if (Input.GetAxis ("Vertical") < 0) { //backwards
-				if(dir != Direction.DOWN) {
-					buttonCooldown = 5;
-					dir = Direction.DOWN;
-				} else {
-					canMove = false;
-					moving = true;
-					pos += Vector3.back;
-				}
+            }
+            else if (Input.GetAxis ("Vertical") < 0)
+            { //backwards
+                moveBack();
 
-			} else if (Input.GetAxis ("Horizontal") > 0) { //right
-				if(dir != Direction.RIGHT) {
-					buttonCooldown = 5;
-					dir = Direction.RIGHT;
-				} else {
-					canMove = false;
-					moving = true;
-					pos += Vector3.right;					
-				}
+            }
+            else if (Input.GetAxis ("Horizontal") > 0)
+            { //right
+                moveRight();
 
-			} else if (Input.GetAxis ("Horizontal") < 0) { //left
-				if(dir != Direction.LEFT) {
-					buttonCooldown = 5;
-					dir = Direction.LEFT;
-				} else {
-					canMove = false;
-					moving = true;
-					pos += Vector3.left;
-				}
-			}
-		}	
+            }
+            else if (Input.GetAxis ("Horizontal") < 0)
+            { //left
+                moveLeft();
+            }
+        }	
 	}
 
+    private void moveForward()
+    {
+        if (dir != Direction.UP)
+        {
+            buttonCooldown = 5;
+            dir = Direction.UP;
+        }
+        else
+        {
+            canMove = false;
+            moving = true;
+            pos += Vector3.forward;
+        }
+    }
+
+    private void moveBack()
+    {
+        if (dir != Direction.DOWN)
+        {
+            buttonCooldown = 5;
+            dir = Direction.DOWN;
+        }
+        else
+        {
+            canMove = false;
+            moving = true;
+            pos += Vector3.back;
+        }
+    }
+
+    private void moveRight()
+    {
+        if (dir != Direction.RIGHT)
+        {
+            buttonCooldown = 5;
+            dir = Direction.RIGHT;
+        }
+        else
+        {
+            canMove = false;
+            moving = true;
+            pos += Vector3.right;
+        }
+    }
+
+    private void moveLeft()
+    {
+        if (dir != Direction.LEFT)
+        {
+            buttonCooldown = 5;
+            dir = Direction.LEFT;
+        }
+        else
+        {
+            canMove = false;
+            moving = true;
+            pos += Vector3.left;
+        }
+    }
 
 
 
