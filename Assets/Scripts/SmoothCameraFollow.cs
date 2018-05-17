@@ -21,7 +21,7 @@ public class SmoothCameraFollow : MonoBehaviour {
 
     // Use this for initialization
     public void Start () {
-		smoothSpeed = 10f;
+		smoothSpeed = 5f;
         velocity = Vector3.zero;
         offset = new Vector3(0, 2, -10);
         setDesiredPosition();
